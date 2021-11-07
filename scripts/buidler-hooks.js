@@ -23,40 +23,31 @@ module.exports = {
 
   // Called after the app's proxy is initialized.
   postInit: async ({ proxy }, { web3, artifacts }) => {
-    const [from] = await web3.eth.requestAccounts()
+    // const [from] = await web3.eth.requestAccounts()
 
-    const finder = require('@uma/core/artifacts/contracts/oracle/implementation/Finder.sol/Finder.json');
-    const finderC = new web3.eth.Contract(finder.abi);
-    const finderResult = await finderC.deploy({ data: finder.bytecode }).send({ from });
-    console.log(finderResult.options.address)
+    // const finder = require('@uma/core/artifacts/contracts/oracle/implementation/Finder.sol/Finder.json');
+    // const finderC = new web3.eth.Contract(finder.abi);
+    // const finderResult = await finderC.deploy({ data: finder.bytecode }).send({ from });
+    // console.log(finderResult.options.address)
 
-    const tokenFactory = require('@uma/core/artifacts/contracts/financial-templates/common/TokenFactory.sol/TokenFactory.json');
-    const tokenFC = new web3.eth.Contract(tokenFactory.abi);
-    const tokenFCResult = await tokenFC.deploy({ data: tokenFactory.bytecode }).send({ from });
-    console.log(tokenFCResult.options.address)
+    // const tokenFactory = require('@uma/core/artifacts/contracts/financial-templates/common/TokenFactory.sol/TokenFactory.json');
+    // const tokenFC = new web3.eth.Contract(tokenFactory.abi);
+    // const tokenFCResult = await tokenFC.deploy({ data: tokenFactory.bytecode }).send({ from });
+    // console.log(tokenFCResult.options.address)
 
-    const lspc = require('@uma/core/artifacts/contracts/financial-templates/long-short-pair/LongShortPairCreator.sol/LongShortPairCreator.json')
-    const contract = new web3.eth.Contract(lspc.abi);
-    const result = await contract.deploy({ data: lspc.bytecode, arguments: [finderResult.options.address, tokenFCResult.options.address, "0xb8CE9ab6943e0eCED004cDe8e3bBed6568B2Fa01"] }).send({ from });
-    console.log(result.options.address)
-    // const { toWei, utf8ToHex, padRight } = web3.utils;
-    // const lspParams = {
-    //   pairName: 0,
-    //   expirationTimestamp: 1640966400, // Timestamp that the contract will expire at.
-    //   collateralPerPair: 1,
-    //   priceIdentifier: padRight(utf8ToHex('3'), 64), // Price identifier to use.
-    //   longSynthName: 'longSynthName',
-    //   longSynthSymbol: 'Sym',
-    //   shortSynthName: 'shortSynthName',
-    //   shortSynthSymbol: 's',
-    //   collateralToken: '0xb4124cEB3451635DAcedd11767f004d8a28c6eE7', // Collateral token address.
-    //   financialProductLibrary: '0xb4124cEB3451635DAcedd11767f004d8a28c6eE7',
-    //   customAncillaryData: utf8ToHex(''), // Default to empty bytes array if no ancillary data is passed.
-    //   prepaidProposerReward: 0, // Default to 0 if no prepaid proposer reward is passed.
-    //   optimisticOracleLivenessTime: 7200,
-    //   optimisticOracleProposerBond: 200
-    // };
-    // await result.methods.createLongShortPair(lspParams).send({ from })
+    // const lspc = require('@uma/core/artifacts/contracts/financial-templates/long-short-pair/LongShortPairCreator.sol/LongShortPairCreator.json')
+    // const contract = new web3.eth.Contract(lspc.abi);
+    // const result = await contract.deploy({ data: lspc.bytecode, arguments: [finderResult.options.address, tokenFCResult.options.address, "0xb8CE9ab6943e0eCED004cDe8e3bBed6568B2Fa01"] }).send({ from });
+    // console.log(result.options.address)
+
+    // const erc20 = require('@openzeppelin/contracts/build/contracts/ERC20.json');
+    // const erc20FC = new web3.eth.Contract(erc20.abi);
+    // const erc20FCResult = await erc20FC.deploy({ data: erc20.bytecode, arguments: ['CodeBrent Token', 'CBZ'] }).send({ from });
+    // console.log(erc20FCResult.options.address)
+
+    // var c = new web3.eth.Contract(artifacts.require("ATest").abi)
+    // console.log((await c.deploy({ data: artifacts.require("ATest").bytecode }).send({ from })).options.address)
+
   },
 
 
